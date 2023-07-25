@@ -298,14 +298,14 @@
 }
 
 .sc-safety .group-scroll{
-    position: relative;
+    position: absolute;
+    bottom:0; left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 200px 100px 0px 505px;
-    transform: translateY(calc(-100% + ((100vh - 540px) / 2) + 237px )); 
 }
 .sc-safety .service-box{
     width: 1060px;
@@ -405,8 +405,11 @@
 }
 
 .sc-safety .group-scroll .card-list{
+    display: flex;
+    align-items: center;
     position: relative;
     width: calc(100% + 2px);
+    height: 100vh;
 }
 .sc-safety .group-scroll .card-item{
     border: none;
@@ -429,7 +432,8 @@
 
 .sc-safety .group-scroll .card-lock{
     position: absolute;
-    top: 0; left: -440px;
+    top: 50%; left: -440px;
+    transform: translateY(-50%);
 }
 .sc-safety .group-scroll .card-lock .bg{
     position: relative;
@@ -456,8 +460,11 @@
 .sc-safety .group-scroll .self .color{ background: #26FF00; }
 
 .sc-safety .end-text-box{
+    display: flex;
+    align-items: center;
     position: absolute;
-    bottom: 170px; left:700px;
+    bottom: 0; left:700px;
+    height: 100vh;
     font-size: 73px;
     font-weight: bold;
     line-height: 90px;
