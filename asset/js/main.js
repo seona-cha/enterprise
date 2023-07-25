@@ -59,7 +59,9 @@ ScrollTrigger.create({
     scrub: true,
     pin: true,
     markers: false,
-    
+    toggleClass:{
+        targets:"#topBtn", className:"hide"
+    }
 });
 
 // showcase

@@ -113,6 +113,9 @@ main{ position: relative; }
     position: absolute;
     right: 100px; bottom:100px;
 }
+#topBtn.hide{
+    opacity: 0;
+}
 
 
 /********************** footer **********************/
