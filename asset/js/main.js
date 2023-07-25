@@ -203,8 +203,8 @@ let scrollUp = scrollHeight + 300;
 
 let cardWidth = $('.card-list').width();
 
-const safetyHori = gsap.timeline();
-safetyHori
+const safety = gsap.timeline();
+safety
     .addLabel("a")
     .to(".sc-safety .group-hori",{x:-515,duration:3},"a")
     .addLabel("b")
@@ -231,15 +231,28 @@ safetyHori
 
     
 ScrollTrigger.create({
-    animation:safetyHori,
+    animation:safety,
     trigger:".sc-safety",
     start:"top top",
     end: "+=9000",
     markers:false,
     scrub:true,
     pin:true,
+    onEnter:function(){
+        $('.sc-safety .group-hori .middle-area').addClass("fade");
+    }
 })
 
+ScrollTrigger.create({
+    trigger:".sc-safety .group-scroll .card-list",
+    start: `${scrollHeight+900} 80%`,
+    end:"+=1000",
+    markers: false,
+    onEnter:function(){
+        $('.sc-safety .bg').addClass('blur')
+        $('.sc-safety .group-scroll .middle-area').fadeIn();
+    },
+})
 
 // change
 ScrollTrigger.create({
@@ -294,6 +307,9 @@ ScrollTrigger.create({
     pin:true,
     markers:false,
     scrub:true,
+    onEnter:function(){
+        $('.sc-economy .bg').addClass('blur')
+    },
     onLeave:function(){
         $(".sc-economy .group-arrow").fadeOut();
     },
@@ -335,6 +351,11 @@ ScrollTrigger.create({
     end:"+=1500",
     pin:true,
     scrub:true,
+    onEnter:function(){
+        $('.sc-data .bg').addClass('blur');
+        $('.sc-data .middle-area').fadeIn();
+
+    },
 })
 
 const banner02 = gsap.timeline();
