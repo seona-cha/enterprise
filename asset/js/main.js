@@ -91,7 +91,8 @@ ScrollTrigger.create({
     animation:showcase,
     trigger:".sc-showcase",
     start: "top top",
-    end: "100% 100%",
+    end: "+=9000",
+    pin:true,
     scrub: true,
     markers: false,
 })
