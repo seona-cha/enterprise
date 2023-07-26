@@ -49,7 +49,6 @@ intro
     .from(".sc-intro .t03", {autoAlpha: 0, duration: 100}, "+=1")
     .to(".sc-intro .t03", {autoAlpha: 0, duration: 100},"+=1")
     .from(".sc-intro .t04", {autoAlpha: 0, duration: 100}, "+=1")
-    .to(".sc-intro .t04", {autoAlpha: 0, duration: 100},"+=1")
      
 ScrollTrigger.create({
     animation: intro,
@@ -65,44 +64,34 @@ ScrollTrigger.create({
 });
 
 // showcase
-const showcase1 = gsap.timeline();
-showcase1
+const showcase = gsap.timeline();
+showcase
     .addLabel('a')
-    .fromTo(".case01 .text-bg", {backgroundColor:"rgba(0,0,0,0.0)", duration: 10}, {backgroundColor:"rgba(0,0,0,0.6)", duration: 10},"a")
-    .from(".case01 .text-area", {autoAlpha:0, duration:10},"a")
+    .fromTo(".sc-showcase .group-text .text-bg", {backgroundColor:"rgba(0,0,0,0.0)"}, {backgroundColor:"rgba(0,0,0,0.6)",duration:20},"a")
+    .from(".sc-showcase .group-text", {autoAlpha:0,duration:20},"a")
+    
 
     .addLabel('b')
-    .to(".case01 .text-bg", {backgroundColor:"rgba(0,0,0,0.0)", duration: 10},"b")
-    .to(".case01 .t01", {xPercent:100, duration: 10},'b')
-    .to(".case01 .t03", {xPercent:-100, duration: 10},'b')
+    .to(".sc-showcase .group-text .text-bg", {backgroundColor:"rgba(0,0,0,0.0)",duration:20},"b")
+    .to(".sc-showcase .t01", {xPercent:100,duration:20},'b')
+    .to(".sc-showcase .t03", {xPercent:-100,duration:20},'b')
     
     .addLabel('c')
-    .to(".case01 .t01", {autoAlpha:0, duration: 10},'c')
-    .to(".case01 .t02", { autoAlpha:0, duration: 10},'c')
-    .to(".case01 .t03", {autoAlpha:0, duration: 10},'c')
+    .to(".sc-showcase .t01", {autoAlpha:0,duration:20},'c')
+    .to(".sc-showcase .t02", { autoAlpha:0,duration:20},'c')
+    .to(".sc-showcase .t03", {autoAlpha:0,duration:20},'c')
+
+    .to(".sc-showcase .img-box:nth-child(3)",{height:0,duration:20})
+    
+    .to(".sc-showcase .img-box:nth-child(2)",{height:0,duration:20})
+    .to(".sc-showcase .desc .text-bg",{backgroundColor:"rgba(0,0,0,0.4)", duration:20},)
+    .from(".sc-showcase .desc",{autoAlpha:0,duration:20})
 
 ScrollTrigger.create({
-    animation:showcase1,
-    trigger:".sc-showcase .case01",
+    animation:showcase,
+    trigger:".sc-showcase",
     start: "top top",
-    end: "+=3000",
-    pin:true,
-    scrub: true,
-    markers: false,
-})
-
-const showcase3 = gsap.timeline();
-showcase3
-    .addLabel("a")
-    .to(".case03 .text-bg",{backgroundColor:"rgba(0,0,0,0.4)", duration:10},"a")
-    .from(".case03 .text-area p",{autoAlpha:0, duration:10},"a")
-
-ScrollTrigger.create({
-    animation:showcase3,
-    trigger:".sc-showcase .case03",
-    start: "top top",
-    end: "+=3000",
-    pin:true,
+    end: "100% 100%",
     scrub: true,
     markers: false,
 })
@@ -144,7 +133,7 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger:".sc-talent",
     start: "top top",
-    end: "+=3000",
+    end: "100% 100%",
     pin:".title-area",
     markers:false,
     scrub:true,
@@ -285,17 +274,13 @@ ScrollTrigger.create({
     markers:false,
     scrub:true,
 })
-// takeoff
-let economyWidth = $(window).width() 
-                 - $(".sc-economy .title-area").width() 
-                 - $(".sc-economy .card-list").width() 
-                 - $(".sc-economy .desc-area").width() 
-                 - 500;
+
+//economy
 const economy = gsap.timeline();
 
 economy
     .addLabel("a")
-    .to(".sc-economy .group-hori",{x:economyWidth,duration:4},"a")
+    .to(".sc-economy .group-hori",{xPercent:-100,x:"100vw",duration:4},"a")
     .from(".sc-economy .group-arrow",{autoAlpha:0,duration:1},"a")
     .from(".sc-economy .group-arrow .fade",{autoAlpha:0,delay:1,duration:1},"a")
 
@@ -318,6 +303,7 @@ ScrollTrigger.create({
     },
 })
 
+//choi
 const choi = gsap.timeline();
 
 choi
@@ -335,6 +321,8 @@ ScrollTrigger.create({
     pin:true,
     scrub:true,
 })
+
+//data
 let dataWidth = $(window).width() 
                  - $(".sc-data .title-area").width() 
                  - $(".sc-data .card-list").width() 
@@ -342,7 +330,7 @@ let dataWidth = $(window).width()
                  - 500;
 const data = gsap.timeline();
 data
-    .to(".sc-data .group-hori",{x:dataWidth})
+    .to(".sc-data .group-hori",{xPercent:-100,x:"100vw"})
     
 ScrollTrigger.create({
     animation:data,
@@ -358,15 +346,11 @@ ScrollTrigger.create({
     },
 })
 
-const banner02 = gsap.timeline();
-banner02
-    .to(".sc-banner02",{y:0,delay:3})
 
 ScrollTrigger.create({
-    animation:banner02,
     trigger: ".footer",
     start: "0% 100%",
-    end: "100% 99.9%",
+    end: "110% 100%",
     scrub: true,
     markers: false,
     toggleClass:{
@@ -374,8 +358,10 @@ ScrollTrigger.create({
     },
     onEnter:function(){
         $('#topBtn a').addClass('fixed');
+        $('.sc-banner02').addClass('on');
     },
     onLeaveBack:function(){
         $('#topBtn a').removeClass('fixed');
+        $('.sc-banner02').removeClass('on');
     }
 });

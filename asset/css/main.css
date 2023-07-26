@@ -37,26 +37,60 @@
 }
 
 /*********************** showcase ***********************/
-.sc-showcase .group-case{
+.sc-showcase{
+    position: relative;
+    width: 100%;
+    height: 1000vh;
+}
+.sc-showcase .group-visual{
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
 }
-.sc-showcase .case01{ background: url(../images/img-showcase01-pc.jpg) fixed center / cover;}
-.sc-showcase .case02{ background: url(../images/img-showcase02-pc.jpg) fixed center / cover;}
-.sc-showcase .case03{ background: url(../images/img-showcase03-pc.jpg) fixed center / cover;}
+.sc-showcase .group-visual .img-box{
+    position: absolute;
+    z-index: -2;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.sc-showcase .group-visual img{
+    width: 100%;
+    height: 100vh;
+    object-fit:cover;
+}
 
-.sc-showcase .case01 .text-area{
-    position: relative;
-    z-index:1;
+.sc-showcase .group-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:sticky;
+    top: 0; left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    margin-top: -100vh;
     font-size: 100px;
     font-weight: 700;
     line-height: 120px;
     padding-top: 20px;
 }
 
-.sc-showcase .case03 .text-area{
-    position: relative;
+.sc-showcase .desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:sticky;
+    top: 0; left: 0;
     z-index:1;
+    width: 100%;
+    height: 100vh;
+    margin-top: -200vh;
     font-size: 24px;
     font-weight: 700;
     line-height: 40px;
@@ -103,6 +137,12 @@
 .sc-talent .desc{
     margin-top: 20px;
     font-weight: bold;
+}
+@media(max-width:1450px){
+    
+    .sc-talent .talent-list li{
+        width: 400px;
+    }
 }
 
 /*********************** sc-possibility ***********************/
@@ -486,6 +526,12 @@
 }
 
 /*********************** sc-economy ***********************/
+.sc-economy{
+    display: flex;
+}
+.sc-economy .group-hori{
+    padding-right: 100px;
+}
 .sc-economy .card-item .top-area .sub{
     display: block;
     position: absolute;
@@ -644,7 +690,12 @@
 }
 
 /*********************** sc-data ***********************/
-
+.sc-data{
+    display: flex;
+}
+.sc-data .group-hori{
+    padding-right: 100px;
+}
 .sc-data .card-item{
     background: #ccc;
 }
@@ -710,6 +761,9 @@
 .sc-banner02 {
     transform: translateY(100%);
     transition:0.3s;
+}
+.sc-banner02.on {
+    transform: translateY(0);
 }
 .banner-overflow {
     display: flex;

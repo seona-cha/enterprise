@@ -3,6 +3,7 @@
 
 .wrapper{
     min-width:1300px;
+    overflow-x: hidden;
 }
 .blind{
     position: absolute;
@@ -14,10 +15,10 @@
 
 /********************** 텍스트 색상 컨트롤 **********************/
 body{
+    min-width:1300px;
     background: #fff;
     color: #000;
     transition:all 0.4s;
-    overflow-x: hidden;
 }
 body .logo path{
     fill:#000;
@@ -53,6 +54,7 @@ body.dark #languageBtn path{
     top: 0; left: 0;
     z-index: 10;
     width: 100%;
+    min-width:600px;
     opacity:0;
     transform:translateY(-100%);
     transition: all 0.3s;
@@ -171,17 +173,37 @@ main{ position: relative; }
 }
 .sc-text1 .title{
     align-self: start;
+    width: 50%;
     font-size: 72px;
     line-height: 90px;
     font-weight: bold;
+    word-break: keep-all;
 }
 .sc-text1 .desc{
     align-self: end;
-    padding-right: 230px;
+    width: 50%;
+    padding-left: 100px;
     font-size: 24px;
     font-weight: bold;
     line-height: 40px;
+    word-break: keep-all;
 }
+@media(max-width:1630px){
+    .sc-text1 .desc br{
+        display: none;
+    }
+}
+@media(max-width:1480px){
+    .sc-text1 .title{
+        font-size: 55px;
+        line-height: 75px;
+    }
+    .sc-text1 .desc{
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
 
 .sc-text2{
     position: relative;
@@ -213,7 +235,16 @@ main{ position: relative; }
     line-height: 90px;
     color: #fff;
 }
- 
+.sc-text2 .text-area span{
+    display: block;
+}
+@media(max-width:1630px){
+    .sc-text2 .text-area{
+        font-size: 55px;
+    }
+}
+
+
 .sc-card .group-hori{
     display: flex;
     align-items: center;
