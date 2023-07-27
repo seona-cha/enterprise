@@ -233,10 +233,10 @@ ScrollTrigger.create({
 })
 
 ScrollTrigger.create({
-    trigger:".sc-safety .group-scroll .card-list",
-    start: `${scrollHeight+900} 80%`,
-    end:"+=1000",
-    markers: false,
+    trigger:".sc-safety .group-scroll ",
+    start: `180% top`,
+    end:"200% bottom",
+    markers: true,
     onEnter:function(){
         $('.sc-safety .bg').addClass('blur')
         $('.sc-safety .group-scroll .middle-area').fadeIn();
