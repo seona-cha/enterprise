@@ -208,7 +208,7 @@ safety
 
     .addLabel("c")
     .from(".sc-safety .group-scroll",{autoAlpha:0},"c")
-    .from(".sc-safety .group-scroll",{yPercent:100,duration:8,ease: "none"},"c")
+    .from(".sc-safety .group-scroll",{yPercent:100,y:"-200",duration:8,ease: "none"},"c")
     .from(".sc-safety .group-scroll .card-lock",{autoAlpha:0})
     .addLabel("d")
     .to(".sc-safety .group-scroll .card-item:nth-child(2)",{x:-440,duration:3},"d")
