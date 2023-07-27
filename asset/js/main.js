@@ -188,15 +188,13 @@ ScrollTrigger.create({
 })
 
 // safety
-let scrollHeight = $('.group-scroll').height(); 
-let scrollUp = scrollHeight + 300;
-
 let cardWidth = $('.card-list').width();
 
 const safety = gsap.timeline();
 safety
     .addLabel("a")
     .to(".sc-safety .group-hori",{x:-515,duration:3},"a")
+    
     .addLabel("b")
     .to(".sc-safety .group-hori .card-list",{x:-cardWidth+400,duration:3},"b")
     .to(".sc-safety .group-hori .card-item:nth-child(3)",{x:440,duration:3},"b")
@@ -207,9 +205,10 @@ safety
     .to(".sc-safety .group-hori .card-item",{autoAlpha:0,duration:1})
     .to(".sc-safety .ic-lock",{autoAlpha:0,duration:1})
     .from(".sc-safety .card-text",{autoAlpha:0})
+
     .addLabel("c")
     .from(".sc-safety .group-scroll",{autoAlpha:0},"c")
-    .from(".sc-safety .group-scroll",{y:scrollUp,duration:8,ease: "none"},"c")
+    .from(".sc-safety .group-scroll",{yPercent:100,duration:8,ease: "none"},"c")
     .from(".sc-safety .group-scroll .card-lock",{autoAlpha:0})
     .addLabel("d")
     .to(".sc-safety .group-scroll .card-item:nth-child(2)",{x:-440,duration:3},"d")
