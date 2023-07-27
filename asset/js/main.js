@@ -236,7 +236,7 @@ ScrollTrigger.create({
     trigger:".sc-safety .group-scroll ",
     start: `180% top`,
     end:"200% bottom",
-    markers: true,
+    markers: false,
     onEnter:function(){
         $('.sc-safety .bg').addClass('blur')
         $('.sc-safety .group-scroll .middle-area').fadeIn();
